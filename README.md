@@ -1,11 +1,18 @@
-# Example start code for project-1
+# Cars 'R' Us Frontend
 
-Simple project layout which you can use for the first project.
-You dont have to use this, and if you do, feel free to twist it any way you like.
+This is the frontend for my Cars 'R' Us project
 
-## How to use
+Features implemented so far
 
-If you plan to use this for the first semester project, start by adding the "menu structure" required by YOUR project, and remove the demo code meant only as an introduction to this setup.
+- Everything from startcode
+- Get all cars from backend and render as table
+- Login
+- Add Car
 
-## IMPORTANT
-Make sure you understand that this is not a *router*
+Stuff works ,but there's visual feedback if anything fails so telling
+the difference is sometimes pretty hard.
+
+I made a separate api.js that handles the fetching part to make the
+js-for-pages code cleaner. Server url is also factored into its own config.js
+
+I'm using async-await in a lot of places, but i'm not handling any errors.

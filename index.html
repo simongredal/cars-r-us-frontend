@@ -2,69 +2,258 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!--Bootstrap files-->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-    crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <!-- <link rel="stylesheet" href="styles/menu-vertical.css" /> -->
-  <link rel="stylesheet" href="styles/menu-horizontal.css" />
-  <!-- <link rel="stylesheet" href="styles/style.css" /> -->
-  <title>Document</title>
-  <script type="module" src="index.js"></script>
+    <title>Cars 'R' Us</title>
+    <script src="index.js" type="module"></script>
+
+    <style>
+        html {
+            font-family: sans-serif;
+            font-size: 12pt;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .center {
+            margin: 0 auto;
+        }
+
+        .constrain-width {
+            max-width: 120ch;
+        }
+
+        .v-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 8pt;
+        }
+
+        .h-stack {
+            display: flex;
+            flex-direction: row;
+            align-items: baseline;
+            gap: 8pt;
+        }
+
+        .grow {
+            flex-grow: 1;
+        }
+
+        input {
+            padding: 2pt 4pt;
+            border: none;
+            border-bottom: 2pt solid #EEE;
+            border-bottom-style: outset;
+        }
+
+        input:focus {
+            border-bottom: 2pt solid hsl(220, 100%, 60%);
+            outline: none;
+        }
+
+        .active {
+            background-color: hsl(159, 94%, 28%);
+        }
+
+        .scroll-x {
+            overflow-x: scroll;
+        }
+
+        .menu {
+            list-style-type: none;
+            width: 100%;
+            display: flex;
+            align-items: center;
+
+            padding: 0;
+            margin: 0;
+            left: 0;
+        }
+
+        .menu > li {
+            display: block;
+            margin: 0;
+            padding: 0;
+        }
+
+        .menu > li > a {
+            display: block;
+            margin: 0;
+            padding: 8pt 12pt;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .menu > li > a:hover:not(.active) {
+            background-color: #111;
+            text-decoration: underline;
+        }
+
+        nav {
+            background-color: #333;
+            padding: 8pt;
+        }
+
+        main {
+            padding: 16pt 8pt 8pt;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            white-space: nowrap;
+        }
+
+        table > thead {
+            border-bottom: 2pt solid #333333;
+            font-weight: bold;
+        }
+
+        table > tbody > tr:nth-child(odd) {
+        }
+
+        table > tbody > tr:nth-child(even) {
+            background-color: lightgrey;
+        }
+
+        td {
+            padding: 0 8pt;
+        }
+
+        th {
+            text-align: center;
+        }
+
+        td.number {
+            text-align: right;
+        }
+
+        td.text {
+            text-align: left;
+        }
+    </style>
 </head>
 
-<body style="font-family: sans-serif;padding-top: 1em;">
-  <div style="margin-left: 50px;margin-right: auto;width: 80%;" class="vertical-menu">
-    <div>
-      <ul id="menu" class="menu">
-        <li><a id="page-1" href="#">Page-1</a></li>
-        <li><a id="page-2" href="#">Page-2</a></li>
-        <li><a id="page-3" href="#">Page-3</a></li>
-      </ul>
-    </div>
-    <div id="content" style="margin-left:15px;"></div>
-  </div>
+<body>
+<div class="center constrain-width">
+    <nav class="scroll-x">
+        <ul class="menu" id="menu">
+            <li><a href="#" id="page-about">About</a></li>
+            <li><a href="#" id="page-see-cars">See Our Cars</a></li>
+            <li><a href="#" id="page-add-cars">Add Cars</a></li>
+            <li><a href="#" id="page-edit-cars">Edit Cars</a></li>
+            <li><a href="#" id="page-sign-up">Sign Up</a></li>
+            <li><a href="#" id="page-my-details">My Details</a></li>
+            <li><a href="#" id="page-log-in">Log In</a></li>
+            <li><a href="#" id="page-log-out">Log Out</a></li>
+        </ul>
+    </nav>
+    <main id="content"></main>
+</div>
 </body>
-
 </html>
 
-<!--
-  All you templates should be added below
--->
-
-<template data-id="page-1">
-  <h2>Just Text (HTML) </h2>
-  <p>No JavaScript used on this page</p>
-  <img src="images/KEA_logo_DK_Web.jpg" style="width: 700px;" alt="kea logo" />
+<!-- All you templates should be added below -->
+<template data-id="page-about">
+    <h2>Cars 'R' Us</h2>
+    <picture>
+        <source srcset="images/wingo.webp">
+        <img src="images/wingo.png" alt="">
+    </picture>
 </template>
 
-<template data-id="page-2">
-  <h2>Page-2</h2>
-  <button id="t1-btn1" class="btn btn-primary">Set Content</button>
-  <h4 id="t1-content" style="margin-top: 1em;"></h4>
+<template data-id="page-see-cars">
+    <div class="scroll-x">
+        <table class="table">
+            <thead>
+            <tr>
+                <td>ID</td>
+                <td>Make</td>
+                <td>Model</td>
+                <td>Year</td>
+                <td>Daily Price</td>
+            </tr>
+            </thead>
+            <tbody id="cars-table-body"></tbody>
+        </table>
+    </div>
 </template>
 
-<template data-id="page-3">
-  <h2>Page-3</h2>
-  <h3>Get all users</h3>
-  <p>This is what we did last time in the class</p>
-  <button id="btn-get-all" class="btn btn-secondary">Get All Users</button>
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Phone</th>
-        <th>Street</th>
-        <th>City</th>
-      </tr>
-    </thead>
-    <tbody id="tbl-body">
-    </tbody>
-  </table>
+<template data-id="page-add-cars">
+    <form class="v-stack" id="add-car-form">
+        <div class="h-stack">
+            <label for="add-car-form-make-input">Make</label>
+            <input class="grow" id="add-car-form-make-input" placeholder="Mercedes"
+                   type="text">
+        </div>
+        <div class="h-stack">
+            <label for="add-car-form-model-input">Model</label>
+            <input class="grow" id="add-car-form-model-input" placeholder="E40"
+                   type="text">
+        </div>
+        <div class="h-stack">
+            <label for="add-car-form-year-input">Year</label>
+            <input class="grow" id="add-car-form-year-input" placeholder="2010"
+                   type="number">
+        </div>
+        <div class="h-stack">
+            <label for="add-car-form-price-input">Price</label>
+            <input class="grow" id="add-car-form-price-input" placeholder="1000"
+                   type="number">
+        </div>
+        <div class="h-stack">
+            <label for="add-car-form-discount-input">Discount</label>
+            <input class="grow" id="add-car-form-discount-input" placeholder="40"
+                   type="number">
+            <span>%</span>
+        </div>
+
+        <button class="grow" type="submit">Submit</button>
+    </form>
+</template>
+
+<template data-id="page-edit-cars">
+
+</template>
+
+<template data-id="page-sign-up">
+
+</template>
+
+<template data-id="page-my-details">
+
+</template>
+
+<template data-id="page-log-in">
+    <form class="v-stack" id="log-in-form">
+        <div class="h-stack">
+            <label for="email-input">Email</label>
+            <input class="grow" id="email-input" name="email"
+                   placeholder="you@example.com" type="email">
+        </div>
+
+        <div class="h-stack">
+            <label for="password-input">Password</label>
+            <input class="grow" id="password-input" name="password"
+                   placeholder="••••••••••••" type="password">
+        </div>
+
+        <button type="submit">Log In</button>
+    </form>
+</template>
+
+<template data-id="page-log-out">
+
 </template>
