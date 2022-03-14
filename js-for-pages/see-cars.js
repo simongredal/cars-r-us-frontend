@@ -1,4 +1,4 @@
-import * as Api from "../api.js"
+import * as Api from "../js/api.js"
 
 export async function didReceiveFocus() {
     await fetchAndRenderTableRows()

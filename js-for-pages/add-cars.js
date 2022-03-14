@@ -1,4 +1,4 @@
-import * as Api from "../api.js"
+import * as Api from "../js/api.js"
 
 export function didReceiveFocus() {
     document.querySelector("#add-car-form").addEventListener("submit", async (event) => {

@@ -1,4 +1,4 @@
-import { server_url } from "../config.js"
+import { server_url } from "../js/config.js"
 
 export function didReceiveFocus() {
     document.querySelector("#log-in-form").addEventListener("submit", (event) => {
